@@ -35,3 +35,10 @@ def crear_comentario(request):
         form = Comentario_Form
         if form.is_valid():
            pass 
+
+
+
+def post_detail(request, post_id):
+    post = Post.objects.get(id=post_id)
+
+    return render(request,'blog/post_detail.html', {'posts': post}) 

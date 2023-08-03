@@ -4,7 +4,7 @@
 
 {% block content %}
 
-    {% for post in posts %}
+   
     
     <section class="page-section clearfix">
         <div class="container">
@@ -12,8 +12,8 @@
             <img class="intro-img img-fluid mb-3 mb-lg-0 rounded" src= "{{ post.imagen }}" alt="" style="width: 50%;">
                 <div class="intro-text left-0 text-center bg-faded p-5 rounded">
                 <h2 class="section-heading mb-4" >
-                  <span class="section-heading-lower"><a href="{% url 'post_detail' post.id %}">{{post.titulo}}</a></span>
-                  <span class="section-heading-upper">{{post.contenido| slice:"10"}}</span>
+                  <span class="section-heading-lower"><a href="">{{post.titulo}}</a></span>
+                  <span class="section-heading-upper">{{post.contenido}}</span>
               </h2>
               <div style="text-align: left;">
                 
@@ -26,8 +26,7 @@
         </div>
       </section>
 
-    {% endfor %}
-
+   
     </section>
 
 {% endblock %}

@@ -1,0 +1,44 @@
+{% extends "proyecto_web/base.html" %}
+
+{% load static %}
+
+{% block content %}
+   <!-- Heading -->
+   <section class="page-section clearfix">
+    <div class="container">
+      <div class="intro">
+        <img class="intro-img img-fluid mb-3 mb-lg-0 rounded" src="{% static 'proyecto_web/img/pacman.png' %}" alt="">
+        <div class="intro-text left-0 text-center bg-faded p-5 rounded">
+          <h2 class="section-heading mb-4" >
+            <span class="section-heading-upper">Juegos</span>
+            <span class="section-heading-lower">blogs</span>
+          </h2>
+          <p class="mb-3"> Aca vas a poder encontrar las mejores guias para tus juegos arcade favoritos! podes registrarte y compartir con esta pequeña comunidad tu experiencia
+          </p>
+         
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  
+    <!-- Message -->
+    <section class="page-section cta">
+      <div class="container">
+        <div class="row">
+          <div class="col-xl-9 mx-auto">
+            <div class="cta-inner text-center rounded">
+              <h2 class="section-heading mb-4">
+                <span class="section-heading-upper">Compromiso total</span>
+                <span class="section-heading-lower">Garentizado</span>
+              </h2>
+              <p class="mb-0">Con más de 7 meses de experiencia a en el informatorio, te traemos este blog ideal para vos</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+{% endblock %}
+    

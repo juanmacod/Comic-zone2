@@ -1,0 +1,19 @@
+{% extends "proyecto_web/base.html" %}
+
+{% load static %}
+{% load crispy_forms_tags %} <!-- para cargar los crispy forms que instale-->
+{% block content %}
+
+<form method="post" action="" style="color: aliceblue;">
+    {% csrf_token %}
+     
+    <div style="width: 50%; margin: auto;">
+        {{form|crispy}}
+
+
+        <button type="submit" class="btn btn-sucess"> Registrate </button>
+    </div>
+    
+</form>
+
+{% endblock %}

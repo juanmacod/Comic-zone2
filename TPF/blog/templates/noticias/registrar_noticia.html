@@ -10,7 +10,7 @@
         <h2>No te olvides de completar todos los formularios marcados con * y no olvidarte de ningún detalle</h2>
         <form method="post" enctype="multipart/form-data">
             {% csrf_token %}
-            {% crispy form %}
+            {{ form.as_p }}
             {% if form.errors %}
                 <ul>
                     {% for field in form %}

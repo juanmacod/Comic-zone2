@@ -13,20 +13,40 @@ def blog(request):
 
 
 
-@login_required  # El decorador login_required asegura que solo los usuarios autenticados puedan acceder a esta vista
-def crear_post(request):
-    if request.method == 'POST':
-        form = Post_Form(request.POST, request.FILES)
-        if form.is_valid():
-            post = form.save(commit=False)
-            post.autor = request.user
-            post.save()
-            form.save_m2m()  
-            return redirect('home')  
-    else:
-        form = Post_Form()
+# @login_required  # El decorador login_required asegura que solo los usuarios autenticados puedan acceder a esta vista
+# def crear_post(request):
+#     if request.method == 'POST':
+#         form = Post_Form(request.POST, request.FILES)
+#         if form.is_valid():
+#             post = form.save(commit=False)
+#             post.autor = request.user
+#             post.save()
+#             form.save_m2m()  
+#             return redirect('home')  
+#     else:
+#         form = Post_Form()
     
-    return render(request, 'blog/crear_post.html', {'form': form})
+#     return render(request, 'blog/crear_post.html', {'form': form})
+
+
+
+
+# subir noticia desde blog vvvvvvvvvvvvvvvvvvvvvvvvvvv
+# para ver el formulario la url es http://localhost:8000/blog/registrar_noticia/
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.views.generic import CreateView
+from django.urls import reverse_lazy
+
+class CrearNoticia(LoginRequiredMixin, CreateView):
+	model = Post
+	form_class = Post_Form
+	template_name = 'noticias/registrar_noticia.html'
+	success_url = reverse_lazy('blog')
+	
+	def form_valid(self, form):
+		noticia = form.save(commit=False)
+		noticia.autor = self.request.user
+		return super(CrearNoticia, self).form_valid(form)
 
 
 @login_required

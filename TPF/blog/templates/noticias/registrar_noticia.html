@@ -1,0 +1,27 @@
+
+{% extends "proyecto_web/base.html" %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+    <div style="width: 50%; margin: auto; color: white;">
+        <h1 style="color: white;">FORMULARIO DE NOTICIAS</h1>
+        <h2>No te olvides de completar todos los formularios marcados con * y no olvidarte de ningún detalle</h2>
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {% crispy form %}
+            {% if form.errors %}
+                <ul>
+                    {% for field in form %}
+                        {% for error in field.errors %}
+                            <li>{{ field.label }}: {{ error }}</li>
+                        {% endfor %}
+                    {% endfor %}
+                </ul>
+            {% endif %}
+            <button type="submit" class="btn btn-sucess">Registrar noticia</button>
+        </form>
+    </div>
+
+{% endblock %}

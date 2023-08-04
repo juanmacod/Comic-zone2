@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect,get_object_or_404
 from .models import Post
 from django.contrib.auth.decorators import login_required
 from .forms import Post_Form, Comentario_Form
@@ -58,10 +58,14 @@ def crear_comentario(request):
 
 
 
+#def post_detail(request, post_id):
+#    post = Post.objects.get(id=post_id)
+#
+#    return render(request,'blog/post_detail.html', {'posts': post}) 
 def post_detail(request, post_id):
-    post = Post.objects.get(id=post_id)
+    post = get_object_or_404(Post, id=post_id)
 
-    return render(request,'blog/post_detail.html', {'posts': post}) 
+    return render(request, 'blog/post_detail.html', {'post': post})
 
 def buscar_posts(request):
     if 'q' in request.POST:

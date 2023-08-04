@@ -1,20 +1,28 @@
+/* Fuentes */
 body {
-  font-family: 'Lora';
-  background: linear-gradient(rgba(47, 23, 15, 0.65), rgba(47, 23, 15, 0.65)), url("../img/gameover.jpg");
+  font-family: 'Lora', serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Raleway', sans-serif;
+}
+
+/* Colores */
+:root {
+  --primary-color: #FFA500; /* Naranja */
+  --secondary-color: #470F10; /* Rojo oscuro */
+  --bg-color: rgba(47, 23, 15, 0.65); /* Fondo degradado */
+}
+
+/* Fondo degradado */
+body {
+  background: linear-gradient(var(--bg-color), var(--bg-color)), url("../img/gameover.jpg");
   background-attachment: fixed;
   background-position: center;
   background-size: cover;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-family: 'Raleway';
-}
-
+/* Estilos generales */
 p {
   line-height: 1.75;
 }
@@ -28,7 +36,6 @@ p {
   margin-bottom: 5rem;
   text-transform: uppercase;
   line-height: 1;
-  font-family: 'Raleway';
 }
 
 .site-heading .site-heading-upper {
@@ -56,8 +63,7 @@ p {
   display: block;
   font-size: 1rem;
   font-weight: 800;
-  padding-bottom:.5rem;
-
+  padding-bottom: .5rem;
 }
 
 .section-heading .section-heading-lower {
@@ -66,26 +72,22 @@ p {
   font-weight: 100;
 }
 
-
 .section-heading .section-heading-under {
   display: block;
   font-size: 1rem;
   text-transform: none;
   font-weight: 300;
-  margin-top:.5rem;
+  margin-top: .5rem;
 }
 
-.bg-faded {
-  background-color: rgba(255, 255, 255, 0.85);
-}
-
+/* Navbar */
 #mainNav {
-  background-color: rgb(59, 7, 96);
-  font-family: 'Raleway';
+  background-color: var(--secondary-color);
+  font-family: 'Raleway', sans-serif;
 }
 
 #mainNav .navbar-brand {
-  color: #ffffff;
+  color: #fff;
 }
 
 #mainNav .navbar-nav .nav-item .nav-link {
@@ -94,7 +96,7 @@ p {
 }
 
 #mainNav .navbar-nav .nav-item.active .nav-link {
-  color: #ffffff;
+  color: #fff;
   text-decoration: underline;
 }
 
@@ -107,63 +109,34 @@ p {
     text-decoration: underline;
   }
   #mainNav .navbar-nav .nav-item.active .nav-link:hover {
-    color: #ffffff;
+    color: #fff;
     text-decoration: underline;
   }
 }
 
+/* Botón */
 .btn-xl {
   font-weight: 700;
   font-size: 0.8rem;
-  padding-top: 1.5rem;
-  padding-bottom: 1.5rem;
-  padding-left: 2rem;
-  padding-right: 2rem;
+  padding: 1.5rem 2rem;
 }
 
-.intro {
-  position: relative;
+.btn {
+  box-shadow: 0px 3px 3px 0px rgba(33, 37, 41, 0.1);
 }
 
-@media (min-width: 992px) {
-  .intro .intro-img {
-    width: 75%;
-    float: left;
-  }
-  .intro .intro-text {
-    left: 600;
-    width: 60%;
-    margin-top: 3rem;
-    background-color: rgb(59, 7, 96);
-    color: cornsilk;
-    position: absolute;
-  }
-  .intro .intro-text .intro-button {
-    width: 100%;
-    left: 0;
-    position: absolute;
-    bottom: -2rem;
-  }
-}
-
-@media (min-width: 1200px) {
-  .intro .intro-text {
-    width: 45%;
-  }
-}
-
+/* CTA */
 .cta {
-  padding-top: 5rem;
-  padding-bottom: 5rem;
-  background-color: rgb(242, 245, 240);
+  padding: 5rem 0;
+  background-color: var(--bg-color);
+  color: #fff;
 }
 
 .cta .cta-inner {
   position: relative;
   padding: 3rem;
   margin: 0.5rem;
-  background-color: rgb(59, 7, 96);
-  color: cornsilk;
+  background-color: var(--secondary-color);
 }
 
 .cta .cta-inner:before {
@@ -184,96 +157,72 @@ p {
   background-color: rgba(255, 255, 255, 0.85);
 }
 
-@media (min-width: 992px) {
-  .about-heading .about-heading-img {
-    position: relative;
-    z-index: 0;
-  }
-  .about-heading .about-heading-content {
-    margin-top: -5rem;
-    position: relative;
-    z-index: 1;
-  }
-}
-
-@media (min-width: 992px) {
-  .product-item .product-item-title {
-    position: relative;
-    z-index: 1;
-    margin-bottom: -3rem;
-  }
-  .product-item .product-item-img {
-    position: relative;
-    z-index: 0;
-    max-width: 60vw;
-  }
-  .product-item .product-item-description {
-    position: relative;
-    z-index: 1;
-    margin-top: -3rem;
-    max-width: 50vw;
-  }
-}
-
-
-
-@media (min-width: 992px) {
-  .list-hours {
-    width: 50%;
-    font-size: 1.1rem;
-  }
-}
-
-.address strong {
-  font-size: 1.2rem;
-}
-
-.footer {
-   background-color: rgb(59, 7, 96);
-}
-
-
-
-.btn {
-  box-shadow: 0px 3px 3px 0px rgba(33, 37, 41, 0.1);
-}
-
-
-
-.font-weight-light {
-  font-weight: 100 !important;
-}
-
-.mbtm{
-  padding-top: 5rem;
-}
-
-.mbt{
-  padding-top: 2rem;
-}
-
-.mbt1{
-  padding-top: 1.25rem;
-}
-
-a.link{
+/* Enlaces */
+a.link {
   color: rgba(255, 255, 255, 0.7);
 }
 
-a.link:hover{
+a.link:hover {
   text-decoration: none;
   color: rgba(255, 255, 255, 0.4);
 }
 
-.section-content{
-  font-family: 'Lora' !important;
-  font-size: 16px !important;
-  font-weight: 400 !important;
-  line-height: 28px !important;
+/* Contenido */
+.section-content {
+  font-family: 'Lora', serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 28px;
 }
 
-ul.errorlist{
-  padding-top: .75rem;
+/* Errores */
+ul.errorlist {
+  padding-top: 0.75rem;
   font-style: italic;
   color: red;
 }
+
+/* ... (Agrega más estilos según necesites) ... */
+
+/* ... (Otros estilos) ... */
+
+/* Color de texto */
+body {
+  color: #fff;
+}
+
+/* Navbar */
+#mainNav .navbar-brand {
+  color: #fff;
+}
+
+#mainNav .navbar-nav .nav-item .nav-link {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+#mainNav .navbar-nav .nav-item.active .nav-link {
+  color: #fff;
+  text-decoration: underline;
+}
+
+/* Botón */
+.btn-xl {
+  color: #fff;
+}
+
+/* CTA */
+.cta .cta-inner {
+  color: #fff;
+}
+
+/* Enlaces */
+a.link {
+  color: #fff;
+}
+
+a.link:hover {
+  text-decoration: none;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+/* ... (Otros estilos) ... */

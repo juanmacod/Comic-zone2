@@ -62,3 +62,12 @@ def post_detail(request, post_id):
     post = Post.objects.get(id=post_id)
 
     return render(request,'blog/post_detail.html', {'posts': post}) 
+
+def buscar_posts(request):
+    if 'q' in request.POST:
+        query = request.POST['q']
+        posts = Post.objects.filter(titulo__icontains=query)
+    else:
+        posts = Post.objects.all()
+    
+    return render(request, 'blog/blog.html', {'posts': posts})

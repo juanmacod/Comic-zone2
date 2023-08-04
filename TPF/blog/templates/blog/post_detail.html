@@ -4,6 +4,7 @@
 
 {% block content %}
 
+
 <section class="page-section clearfix">
   <div class="container">
     <div class="intro">
@@ -12,15 +13,17 @@
      {% endif %}
      <div class="intro-text left-0 text-center bg-faded p-5 rounded">
         <h2 class="section-heading mb-4">
-          <span>{{ post.titulo }}
+          <span class="section-heading-lower">{{ post.titulo }}</span>
           <span class="section-heading-upper">{{ post.contenido }}</span>
+          <span class="section-heading-upper">categoria {{ post.categoria }}</span>
         </h2>
-        <div style="text-align: left;">
-        {{ post.autor }}
+        <div style="text-align: left; font-family: 'Lora', serif; font-size: 16px; color: #333;">
+          {{ post.autor }}
         </div>
       </div>
     </div>
   </div>
 </section>
+
 
 {% endblock %}

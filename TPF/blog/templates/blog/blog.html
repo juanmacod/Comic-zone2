@@ -15,31 +15,29 @@
 
 
 
-    {% for post in posts %}
-    
-    
-    <section class="page-section clearfix">
-        <div class="container">
-          <div class="intro">
-            <img class="intro-img img-fluid mb-3 mb-lg-0 rounded" src= "{{ post.imagen }}" alt="" style="width: 50%;">
-                <div class="intro-text left-0 text-center bg-faded p-5 rounded">
-                <h2 class="section-heading mb-4" >
-                  <span class="section-heading-lower"><a href="{% url 'post_detail' post.id %}">{{post.titulo}}</a></span>
-                  <span class="section-heading-upper">{{post.contenido| slice:"10"}}</span>
-              </h2>
-              <div style="text-align: left;">
-                
-                  Autor: {{post.autor}}
-                  
-              </div>
-              
+{% for post in posts %}
+<section class="page-section clearfix">
+    <div class="container">
+        <div class="intro">
+            <div class="row">
+                <div class="col-md-6">
+                    {% if post.imagen %}
+                    <img class="intro-img img-fluid mb-3 mb-lg-0 rounded" src="{{ post.imagen.url }}" alt="">
+                    {% endif %}
+                </div>
+                <div class="col-md-6">
+                    <div class="intro-text left-0 bg-faded p-5 rounded">
+                        <h2 class="section-heading mb-4">
+                            <span class="section-heading-lower"><a href="{% url 'post_detail' post.id %}">{{ post.titulo }}</a></span>
+                            <span class="section-heading-upper">{{ post.categorias }}</span>
+                        </h2>
+                        <div style="text-align: left;">
+                        </div>
+                    </div>
+                </div>
             </div>
-          </div>
         </div>
-      </section>
-
-    {% endfor %}
-
-    </section>
-
+    </div>
+</section>
+{% endfor %}
 {% endblock %}

@@ -9,4 +9,5 @@ class Post_Form(ModelForm):
 class Comentario_Form(ModelForm):
     class Meta:
         model = Comentario
-        fields =['contenido']
+        fields = ('contenido',) 
+        

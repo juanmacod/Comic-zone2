@@ -1,0 +1,15 @@
+{% extends "proyecto_web/base.html" %}
+
+{% load static %}
+
+{% block content %}
+
+<form method="post" action="{% url 'modificar_comentario' comentario.pk %}">
+    <p>modificar comentario </p>
+    {{ form }}
+    {% csrf_token %}
+    <input type="submit" value="confirmar">
+</form>
+
+
+{% endblock %}

@@ -31,10 +31,13 @@ class Post(models.Model):
     def __str__(self):
         return self.titulo
     
+    def mis_comentarios(self):
+        return self.comentario_set.all()
 
 class Comentario(models.Model):
     contenido = models.TextField()
     autor = models.ForeignKey(User, on_delete=models.CASCADE)
+    post = models.ForeignKey(Post, on_delete=models.CASCADE)
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now_add=True)
 
@@ -43,5 +46,5 @@ class Comentario(models.Model):
         verbose_name_plural='comentarios'
     
     def __str__(self):
-        return self.contenido
+        return f"{self.post} {self.contenido}"
     

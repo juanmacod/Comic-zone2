@@ -4,7 +4,6 @@
 
 {% block content %}
 
-
 <section class="page-section clearfix">
   <div class="container">
     <div class="intro">
@@ -15,7 +14,7 @@
         <h2 class="section-heading mb-4">
           <span class="section-heading-lower">{{ post.titulo }}</span>
           <span class="section-heading-upper">{{ post.contenido }}</span>
-          <span class="section-heading-upper">categoria {{ post.categoria }}</span>
+          <span class="section-heading-upper">categoria {{ post.categorias }}</span>
         </h2>
         <div style="text-align: left; font-family: 'Lora', serif; font-size: 16px; color: #333;">
           {{ post.autor }}
@@ -25,5 +24,22 @@
   </div>
 </section>
 
+<h3>Comentarios</h3>
+{% for comentario in post.comentario_set.all %}
+    <p><strong>{{ comentario.autor }}</strong></p>
+    <p>{{ comentario.contenido }}</p>
+    <a href="{% url 'borrar_comentario' comentario.pk %}" class="btn btn-info">borrar</a>
+    <a href="{% url 'modificar_comentario' comentario.pk %}" class="btn btn-info">modificar</a>
+{% endfor %}
 
-{% endblock %}
+<!-- Agregar formulario de comentarios -->
+<section class="page-section clearfix">
+  <h3>Comentar</h3>
+  <form method="post" action="{% url 'post_detail' post.id %}">
+    {% csrf_token %}
+    {{ comentario_form.as_p }}
+    <button type="submit">Comentar</button>
+  </form>
+</section>
+
+{% endblock content %}

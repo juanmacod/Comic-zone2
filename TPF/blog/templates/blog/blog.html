@@ -4,7 +4,7 @@
 
 {% block content %}
 
-<form method="post" action="{% url 'buscar_posts' %}" class="form-inline float-right">
+<form method="post" action="{% url 'buscar_inicio' %}" class="form-inline float-right">
   {% csrf_token %}
   <div class="form-group">
     <input type="text" name="q" class="form-control form-control-sm" placeholder="buscar por titulo">

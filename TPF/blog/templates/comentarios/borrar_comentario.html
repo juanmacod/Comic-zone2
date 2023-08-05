@@ -1,0 +1,16 @@
+{% extends "proyecto_web/base.html" %}
+
+{% load static %}
+
+{% block content %}
+
+<form method="post" action="{% url 'borrar_comentario' comentario.pk %}">
+    <p>eliminar comentario </p>
+    {{ form }}
+    {% csrf_token %}
+    <input type="submit" value="confirmar">
+</form>
+
+
+
+{% endblock %}

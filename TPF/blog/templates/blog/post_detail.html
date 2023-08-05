@@ -26,6 +26,7 @@
   </div>
 </section>
 <!-- Botones de comentarios, solo lo veran si el el usuario y el autor son iguales-->
+
 <h3>Comentarios</h3>
 {% for comentario in post.comentario_set.all %}
     <p><strong>{{ comentario.autor }}</strong></p>
@@ -35,7 +36,7 @@
     <a href="{% url 'modificar_comentario' comentario.pk %}" class="btn btn-info">modificar</a>
     {% endif %}
 {% endfor %}
-
+{% if user.is_authenticated %}
 <!-- Agregar formulario de comentarios -->
 <section class="page-section clearfix">
   <h3>Comentar</h3>
@@ -45,5 +46,5 @@
     <button type="submit">Comentar</button>
   </form>
 </section>
-
+{% endif %}
 {% endblock content %}

@@ -73,7 +73,9 @@ def comentar_post(request):
     else:
         return redirect('blog') 
 
-
+from django.contrib.auth.decorators import login_required
+from django.http import Http404
+from django.utils.decorators import method_decorator
 
 
 class Borrar_comentario(DeleteView):
@@ -82,6 +84,12 @@ class Borrar_comentario(DeleteView):
 
     def get_success_url(self):
         return reverse_lazy('post_detail', kwargs={'post_id': self.object.post.id})
+    @method_decorator(login_required)
+    def dispatch(self, request, *args, **kwargs):
+        comment = self.get_object()
+        if comment.autor != self.request.user:
+            raise Http404
+        return super().dispatch(request, *args, **kwargs)
 
 
 class Modificar_comentario(UpdateView):
@@ -91,5 +99,12 @@ class Modificar_comentario(UpdateView):
 
     def get_success_url(self):
         return reverse_lazy('post_detail', kwargs={'post_id': self.object.post.id})
+    
+    @method_decorator(login_required)
+    def dispatch(self, request, *args, **kwargs):
+        comment = self.get_object()
+        if comment.autor != self.request.user:
+            raise Http404
+        return super().dispatch(request, *args, **kwargs)
 
 

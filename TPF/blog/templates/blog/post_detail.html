@@ -14,7 +14,9 @@
         <h2 class="section-heading mb-4">
           <span class="section-heading-lower">{{ post.titulo }}</span>
           <span class="section-heading-upper">{{ post.contenido }}</span>
-          <span class="section-heading-upper">categoria {{ post.categorias }}</span>
+          <span class="section-heading-upper">categoria {% for categoria in post.categorias.all %}
+            {{ categoria.nombre }}
+          {% endfor %}</span>
         </h2>
         <div style="text-align: left; font-family: 'Lora', serif; font-size: 16px; color: #333;">
           {{ post.autor }}
@@ -23,13 +25,15 @@
     </div>
   </div>
 </section>
-
+<!-- Botones de comentarios, solo lo veran si el el usuario y el autor son iguales-->
 <h3>Comentarios</h3>
 {% for comentario in post.comentario_set.all %}
     <p><strong>{{ comentario.autor }}</strong></p>
     <p>{{ comentario.contenido }}</p>
+    {% if request.user == comentario.autor %}
     <a href="{% url 'borrar_comentario' comentario.pk %}" class="btn btn-info">borrar</a>
     <a href="{% url 'modificar_comentario' comentario.pk %}" class="btn btn-info">modificar</a>
+    {% endif %}
 {% endfor %}
 
 <!-- Agregar formulario de comentarios -->

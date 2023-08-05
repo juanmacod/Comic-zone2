@@ -29,8 +29,11 @@
                     <div class="intro-text left-0 bg-faded p-5 rounded">
                         <h2 class="section-heading mb-4">
                             <span class="section-heading-lower"><a href="{% url 'post_detail' post.id %}">{{ post.titulo }}</a></span>
-                            <span class="section-heading-upper">{{ post.categorias }}</span>
-                        </h2>
+                            <span class="section-heading-upper"></span>
+                        </h2>Categorias: 
+                        {% for categoria in post.categorias.all %}
+                          {{ categoria.nombre }}
+                        {% endfor %}
                         <div style="text-align: left;">
                         </div>
                     </div>
